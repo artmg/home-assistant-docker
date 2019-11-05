@@ -40,7 +40,9 @@ https://github.com/artmg/lubuild/blob/master/help/use/git-source-control.md#work
 
 ### User notes
 
-If you started with a clone, and already added your own config, how to turn the modified clone into your own repo
+* If you started with a clone, and already added your own config, how to turn the modified clone into your own repo
+* Data Notes (linked from compose/README)
+* 
 
 ### developer notes
 
