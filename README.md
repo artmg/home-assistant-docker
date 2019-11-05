@@ -1,15 +1,14 @@
 ![Docker compose / autobuild](https://img.shields.io/badge/docker%20compose-autobuild-green)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This repo is designed to make it easy for Home Assistant users 
-to begin using the Docker platform for their servers. 
+A simple way to try Home Assistant on the Docker platform, or to migrate your existing Home Assistant configuration onto new servers using Docker Compose.
 
 ## Get started with HA on Docker
 
 <img align="right" src="about/basic-diagram.png">
 
 Here is a basic setup that anyone can use to 
-get started with Home Assistant in Docker containers. 
+get started with Home Assistant in Docker Containers. 
 This is not the final configuration, but a jump-off point 
 if you want to make the leap to Docker. 
 I came from a python venv setup and, 
