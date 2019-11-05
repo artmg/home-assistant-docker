@@ -66,16 +66,19 @@ Note that forked repos are public by default. You should consider either making 
 
 ## Documentation To Do
 
-### User notes
+Yes, it's still a Work in Progress :)
 
-* Move the docker instructions into an `instructions` subfolder here
+* Move the docker instructions from the other wiki into `about/installing-docker`
+* same with `about/setting-up-your-system` for the OS / SSH etc
 * If you started with a clone, and already added your own config, how to turn the modified clone into your own repo - https://github.com/artmg/lubuild/blob/master/help/use/git-source-control.md#workflow-examples
 * Data Notes (linked from compose/README)
-* 
 
-### developer notes
 
-how to manage this repo in a way that makes it easy for forks to:
-* merge changes into their own forked codebase
-* submit PRs
+## How to contribute
+
+This project welcomes:
+
+* Pull Requests (PRs), but please remember this is supposed to be a shell configuration as a starting point for other user's own configuration.
+* suggestions of how to separate the shell from other individual / personalised configuration elements
+* Test Scripts - ideas for how to validate that this basic shell comes up as expected
 
