@@ -1,0 +1,6 @@
+default_config:
+recorder: 
+  db_url: !secret db_url
+#group: !include groups.yaml
+#automation: !include automations.yaml
+#script: !include scripts.yaml

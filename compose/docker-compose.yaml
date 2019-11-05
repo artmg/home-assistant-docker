@@ -1,0 +1,64 @@
+version: '3'
+networks:
+  webapp:
+    driver: bridge
+  appdb:
+    driver: bridge
+services:
+
+  homeassistant:
+    restart: unless-stopped
+    image: homeassistant/home-assistant
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyUSB1:/dev/ttyUSB1
+#      - /dev/ttyACM0:/dev/ttyACM0
+    volumes:
+      - ${CONFDIR}/hass:/config
+      - /etc/localtime:/etc/localtime:ro
+# leave this to avoid issues if USB device ids switch
+      - /dev/serial/by-id/:/dev/serial/by-id/
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+# credit - https://community.home-assistant.io/t/97994/2
+# omitting hardcoded image names as network auto creates aliases
+# WARNING: reports of some USB devices failing with privileged: true
+#    privileged: true
+    networks:
+      - webapp
+      - appdb
+
+##### temporary fix for user context in docker
+    user: ${PUID}:${PUID}
+    command: /config/docker/run
+
+
+  postdb:
+    restart: unless-stopped
+    image: postgres
+    volumes:
+      - ${DATADIR}/postgresql:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      # troubleshooting - https://community.home-assistant.io/t/81388/15
+      - TZ=${TZ}
+    networks:
+      - appdb
+
+  nginx:
+    image: library/nginx:alpine
+    volumes:
+#      - ${CONFDIR}/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ${CONFDIR}/nginx:/etc/nginx:ro
+      - ${DATADIR}/secrets:/secrets:ro
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - webapp
+
