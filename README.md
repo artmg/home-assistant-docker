@@ -73,6 +73,10 @@ Providing your server can see the internet it will
 pull down all the docker images, set up the virtual networks, 
 create the volumes and containers, and start them running. 
 
+All you need do now is to point your browser to  `http://servername`
+and you should see the Home Assistant start page appear.
+
+Welcome to the world of Home Assistant running on Docker.
 
 
 ## Why use this?
