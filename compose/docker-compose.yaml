@@ -9,31 +9,42 @@ services:
   homeassistant:
     restart: unless-stopped
     image: homeassistant/home-assistant
-    devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
-      - /dev/ttyUSB1:/dev/ttyUSB1
-#      - /dev/ttyACM0:/dev/ttyACM0
-    volumes:
-      - ${CONFDIR}/hass:/config
-      - /etc/localtime:/etc/localtime:ro
-# leave this to avoid issues if USB device ids switch
-      - /dev/serial/by-id/:/dev/serial/by-id/
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-# credit - https://community.home-assistant.io/t/97994/2
-# omitting hardcoded image names as network auto creates aliases
-# WARNING: reports of some USB devices failing with privileged: true
-#    privileged: true
     networks:
       - webapp
       - appdb
 
-##### temporary fix for user context in docker
+    # deal with cases where devices are not always present
+    devices:
+      - ${DEV_USB0}:/dev/ttyUSB0
+      - ${DEV_USB1}:/dev/ttyUSB1
+      - ${DEV_ACM0}:/dev/ttyACM0
+    # and allow apps to detect their presence easily
+    environment:
+      - DEV_USB0=${DEV_USB0}
+      - DEV_USB1=${DEV_USB1}
+      - DEV_ACM0=${DEV_ACM0}
+    # credit https://stackoverflow.com/a/56997577
+
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    # make docker run in regular user context
     user: ${PUID}:${PUID}
+    # and this fixes it to run in a venv inside, avoiding container OS permission issues
     command: /config/docker/run
 
+
+    volumes:
+      - ${CONFDIR}/hass:/config
+      - /etc/localtime:/etc/localtime:ro
+
+# leave this to avoid issues if USB device ids switch
+      - /dev/serial/by-id/:/dev/serial/by-id/
+
+# credit - https://community.home-assistant.io/t/97994/2
+# omitting hardcoded image names as network auto creates aliases
+# WARNING: reports of some USB devices failing with privileged: true
+#    privileged: true
 
   postdb:
     restart: unless-stopped

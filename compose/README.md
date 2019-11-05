@@ -16,11 +16,11 @@ Assuming you have a $ROOTDIR set up, e.g.
 ROOTDIR=/srv/docker
 ```
 
-you can create your own using an editor, or by pasting in
+* you can create your own using an editor, or by pasting in
 
 ```
 tee $ROOTDIR/config/compose/.env <<EOF!
-PUID=$USER
+PUID=`id -u $USER`
 PGID=`getent group docker | cut -d: -f3`
 TZ=`cat /etc/timezone`
 CONFDIR=$ROOTDIR/config
@@ -28,6 +28,10 @@ DATADIR=$ROOTDIR/data
 POSTGRES_DB=hass
 POSTGRES_USER=homeassistant
 POSTGRES_PASSWORD=my3pass7word
+# if you have one, use the actual device name e.g.  DEV_USB0=/dev/ttyUSB0
+DEV_USB0=/dev/null
+DEV_USB1=/dev/null
+DEV_ACM0=/dev/null
 EOF!
 ```
 
@@ -51,6 +55,10 @@ DATADIR=location of service data
 POSTGRES_DB=databaseName
 POSTGRES_USER=databaseUser
 POSTGRES_PASSWORD=databasePassword
+# if you have one, use the actual device name e.g.  DEV_USB0=/dev/ttyUSB0
+DEV_USB0=/dev/null
+DEV_USB1=/dev/null
+DEV_ACM0=/dev/null
 ```
 
 ## Back up your file
