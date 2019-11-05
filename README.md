@@ -33,14 +33,46 @@ https://github.com/artmg/MuGammaPi/wiki/Home-Assistant-Docker for installing:
 * Ubuntu Server operating system
 * the Docker Engine
 
+Then prepare a could of folders:
+
+```
+ROOTDIR=/srv/docker
+
+sudo mkdir -p $ROOTDIR/
+# if issues consider 
+# sudo chmod 777 -R $ROOTDIR/
+sudo chown $USER:$USER -R $ROOTDIR/
+mkdir -p $ROOTDIR/data/
+mkdir -p $ROOTDIR/data/secrets
+mkdir -p $ROOTDIR/config/
+```
+
+
 Then simply clone this repo
 
 ```
-cd /srv/docker/config
+cd $ROOTDIR/config/
 git clone git@github.com:artmg/home-assistant-docker.git .
 ```
 
 See also https://community.home-assistant.io/t/absolute-beginners-guide-to-installing-ha-on-intel-nuc-using-docker/98412
+
+You will need to provide:
+
+* [secrets](hass/README.htm)
+* [environment variables](compose/README.htm)
+
+Then simple run the docker compose
+
+```
+cd $ROOTDIR/config/compose
+docker-compose up -d
+```
+
+Providing your server can see the internet it will 
+pull down all the docker images, set up the virtual networks, 
+create the volumes and containers, and start them running. 
+
 
 
 ## Why use this?
@@ -81,4 +113,5 @@ This project welcomes:
 * Pull Requests (PRs), but please remember this is supposed to be a shell configuration as a starting point for other user's own configuration.
 * suggestions of how to separate the shell from other individual / personalised configuration elements
 * Test Scripts - ideas for how to validate that this basic shell comes up as expected
+* ideas for what optional basic containers to include, and the simplest way (for users) to integrate them
 
