@@ -33,7 +33,9 @@ https://github.com/artmg/MuGammaPi/wiki/Home-Assistant-Docker for installing:
 * Ubuntu Server operating system
 * the Docker Engine
 
-Then prepare a could of folders:
+See also https://community.home-assistant.io/t/absolute-beginners-guide-to-installing-ha-on-intel-nuc-using-docker/98412
+
+Then prepare a couple of folders:
 
 ```
 ROOTDIR=/srv/docker
@@ -54,8 +56,6 @@ Then simply clone this repo
 cd $ROOTDIR/config/
 git clone git@github.com:artmg/home-assistant-docker.git .
 ```
-
-See also https://community.home-assistant.io/t/absolute-beginners-guide-to-installing-ha-on-intel-nuc-using-docker/98412
 
 You will need to provide:
 
