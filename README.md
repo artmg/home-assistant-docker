@@ -19,7 +19,7 @@ This is a really simple Docker compose stack.
 These configs give you a vanilla install, 
 but using three separate containers for the classic split 
 of web front-end, application layer and database back-end.
-From here you can add your own configuraion yaml files on top,
+From here you can add your own configuration yaml files on top,
 and it works really well as a starting point for a git repository, 
 allowing you to come back and rebuild this deployment from scratch very quickly.
 
