@@ -3,7 +3,7 @@ This is going to get you through setting up your system as quickly and as easily
 * a very basic install of Ubuntu Server
 * getting yourself secure remote control via ssh
 
-If you already have this then you can move straight on to [install-docker.md]()
+If you already have this then you can move straight on to [Install Docker](/about/installing-docker.md)
 
 
 # Base Operating System
