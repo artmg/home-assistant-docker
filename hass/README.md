@@ -1,3 +1,5 @@
+## you can't ignore... hass
+
 This `hass` configuration folder contains a `.gitignore` 
 that hides the following files either because they contain 
 details that are specific to an environment 
