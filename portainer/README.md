@@ -26,3 +26,10 @@ like other parts of this project.
 This is for simplicity, as it only needs a single value,
 which you can change to any location as you may need. 
 
+## troubleshooting
+
+If your Portainer instance starts playing up or gets corrupted, you can simply wipe it clean by:
+
+* removing the data files from the location mentioned in `.env`
+* browsing to the initialisation url: `http://server:9000/#/init/admin` 
+* 
