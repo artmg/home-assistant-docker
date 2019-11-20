@@ -26,13 +26,12 @@ allowing you to come back and rebuild this deployment from scratch very quickly.
 
 ## Quick start with docker
 
-You will find full step-by-step instructions at 
-https://github.com/artmg/MuGammaPi/wiki/Home-Assistant-Docker for installing:
+All you need to get going with this is:
 
-* Ubuntu Server operating system
-* the Docker Engine
+* [a basic operating system](/about/setting-up-your-system.md) (like Ubuntu Server)
+* [the Docker Engine](/about/installing-docker.md)
 
-See also https://community.home-assistant.io/t/absolute-beginners-guide-to-installing-ha-on-intel-nuc-using-docker/98412
+If you don't already have these, click on those links above for step-by-step instructions on each.
 
 Then prepare a couple of folders:
 
@@ -61,7 +60,7 @@ You will need to provide:
 * [secrets](hass/README.htm)
 * [environment variables](compose/README.htm)
 
-Then simple run the docker compose
+Then simply run the docker compose
 
 ```
 cd $ROOTDIR/config/compose
@@ -103,8 +102,6 @@ Note that forked repos are public by default. You should consider either making 
 
 Yes, it's still a Work in Progress :)
 
-* Move the docker instructions from the other wiki into `about/installing-docker`
-* same with `about/setting-up-your-system` for the OS / SSH etc
 * If you started with a clone, and already added your own config, how to turn the modified clone into your own repo - https://github.com/artmg/lubuild/blob/master/help/use/git-source-control.md#workflow-examples
 * Data Notes (linked from compose/README)
 
