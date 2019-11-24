@@ -98,6 +98,17 @@ If you want to use it to transform your config onto a Docker platform, then fork
 
 Note that forked repos are public by default. You should consider either making your fork private, or at least being careful with the details of your own environment that you make public.
 
+### But why should I use Docker?
+
+You will find plenty of people who say how great it is to run HA on Docker because of X, Y or Z.
+
+For me, however, the most simple and powerful reason is because I can reinstall my server from bare-metal to a fully working config in a very short period of time (most of which I can be watching a movie in the background)
+
+Because I store my configuration in a version-controlled git repo, I know it is going to work just like before. This gives an incredible flexibility to move, upgrade, test, tinker... I am no longer bound up inside the box that I spent all that time making things work in.
+
+* **Freedom - Flexibility - Resilience**
+
+
 ## Documentation To Do
 
 Yes, it's still a Work in Progress :)
