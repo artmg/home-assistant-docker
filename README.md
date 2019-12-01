@@ -57,8 +57,8 @@ git clone https://github.com/artmg/home-assistant-docker.git .
 
 You will need to provide:
 
-* [secrets](hass/README.htm)
-* [environment variables](compose/README.htm)
+* [secrets](/blob/master/hass/README.htm)
+* [environment variables](/blob/master/compose/README.md)
 
 Then simply run the docker compose
 
