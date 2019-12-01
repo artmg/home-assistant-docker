@@ -48,11 +48,11 @@ mkdir -p $ROOTDIR/config/
 ```
 
 
-Then simply clone this repo
+Then simply clone this repo. Note the dot at the end of the git command that clones into the current folder.
 
 ```
 cd $ROOTDIR/config/
-git clone git@github.com:artmg/home-assistant-docker.git .
+git clone https://github.com/artmg/home-assistant-docker.git .
 ```
 
 You will need to provide:
