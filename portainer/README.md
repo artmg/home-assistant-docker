@@ -28,8 +28,12 @@ which you can change to any location as you may need.
 
 ## troubleshooting
 
-If your Portainer instance starts playing up or gets corrupted, you can simply wipe it clean by:
+If the browser interface gives you errors first time you bring it up, you could try bringing the compose **down** then **up** again, or simply restarting the server that hosts docker.
 
+Most of the data in your Portainer instance is gathered automatically from the local docker environment. 
+If portainer starts playing up or gets corrupted, you can simply wipe it clean by:
+
+* bringing it down
 * removing the data files from the location mentioned in `.env`
+* bringing it back up again
 * browsing to the initialisation url: `http://server:9000/#/init/admin` 
-* 
