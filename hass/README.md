@@ -23,6 +23,7 @@ you can create your own using an editor, or by pasting in
 POSTGRES_DB=hass
 POSTGRES_USER=homeassistant
 POSTGRES_PASSWORD=my3pass7word
+mkdir -p $ROOTDIR/config/hass/
 tee $ROOTDIR/config/hass/secrets.yaml << EOF!
 db_url: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postdb/${POSTGRES_DB}
 EOF!
