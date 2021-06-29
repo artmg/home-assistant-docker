@@ -25,7 +25,7 @@ For Ubuntu we install Docker CE (Community Edition)
 ```
 # credit https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-repository
 sudo apt-get update
-sudo apt-get install \
+sudo apt-get -y install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -46,6 +46,8 @@ sudo usermod -aG docker $USER
 sudo docker run hello-world
 ```
 
+If you have issues check you are using the correct distro page, e.g. https://docs.docker.com/engine/install/debian/#set-up-the-repository
+
 ## Alternative - get.docker.com
 
 
@@ -55,6 +57,19 @@ sudo apt install -y docker-compose
 sudo usermod -aG docker $USER
 sudo docker run hello-world
 ```
+
+### UNINSTALL manually
+
+If you used this alternative method, then decide to revert to the preferred method above...
+
+```
+# credit https://serverfault.com/a/722472
+sudo apt purge docker-ce docker-ce-cli containerd.io docker-compose
+sudo rm -rf /var/lib/docker
+```
+
+then start again at the Preferred Way above.
+
 
 ## That's it
 
