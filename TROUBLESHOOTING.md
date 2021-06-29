@@ -24,7 +24,7 @@ docker run hello-world
 
 ```
 cd $ROOTDIR
-cd config/compose
+cd config/docker/compose
 
 docker-compose down
 docker-compose up -d --build

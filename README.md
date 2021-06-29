@@ -63,7 +63,7 @@ You will need to provide:
 Then simply run the docker compose
 
 ```
-cd $ROOTDIR/config/compose
+cd $ROOTDIR/config/docker/compose
 docker-compose up -d
 ```
 

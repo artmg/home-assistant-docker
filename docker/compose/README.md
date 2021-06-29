@@ -21,8 +21,8 @@ ROOTDIR=/srv/docker
 * you can create your own using an editor, or by pasting in
 
 ```
-mkdir -p $ROOTDIR/config/compose/
-tee $ROOTDIR/config/compose/.env <<EOF!
+mkdir -p $ROOTDIR/config/docker/compose/
+tee $ROOTDIR/config/docker/compose/.env <<EOF!
 PUID=`id -u $USER`
 PGID=`getent group docker | cut -d: -f3`
 TZ=`cat /etc/timezone`

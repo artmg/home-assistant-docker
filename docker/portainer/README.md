@@ -11,7 +11,7 @@ and it's lightweight implementation is suited to smaller environments.
 
 ## Getting started
 
-`portainer/compose.sh`
+`docker/portainer/compose.sh`
 
 running this script will bring the Portainer machine up. 
 After this it will also come up every time you restart the server. 
