@@ -1,8 +1,24 @@
+# Home Assistant files to be disregarded by version control
+
+# you probably don't want your secrets getting out
 secrets.yaml
-home-assistant_v2.db*
-home-assistant.log
-.uuid
-.storage
-.HA_VERSION
+# nor your crypto keys
 *.cer
 *.key
+
+# local storage folder and data files
+.storage
+home-assistant_v2.db*
+home-assistant.log
+
+# version and instance markers
+.HA_VERSION
+.uuid
+
+# add your component data storage and temporary files here
+
+
+# and any component config you import
+
+custom_components
+
