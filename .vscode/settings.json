@@ -1,0 +1,17 @@
+{
+    "git.allowForcePush": true,
+    "json.trace.server": "verbose",
+    "jupyter.allowUnauthorizedRemoteConnection": true,
+    "npm.enableRunFromFolder": true,
+    "npm.runSilent": false,
+    "editor.codeActionsOnSave": {},
+    "terminal.integrated.macOptionIsMeta": true,
+    "terminal.integrated.macOptionClickForcesSelection": false,
+    "terminal.integrated.sendKeybindingsToShell": true,
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.allowMnemonics": true,
+    "scm.providerCountBadge": "visible",
+    "scm.alwaysShowRepositories": true,
+    "scm.alwaysShowActions": true,
+    "docker.commands.build": "${config:docker.dockerPath} build --pull --rm -f \"${dockerfile}\" -t ${tag} \"${context}\""
+}
