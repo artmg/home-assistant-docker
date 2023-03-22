@@ -25,7 +25,7 @@ A Virtual Machine is a great way to develop and test solutions before committing
 	* this is just a pendrive with an image you write to it
 	    - or for a virtual machine you just mount the ISO
 	* you'll easily find instructions online
-	* at the time of writing 18.03.4 LTS was the most recent
+	* at the time of writing 22.04 was the most recent LTS
 	* insert it into the server you want to build
 	* yes you WILL loose any data previously on that server 
 * Power on the server device

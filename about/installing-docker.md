@@ -5,7 +5,7 @@
 ## Options
 
 
-For Ubuntu we install Docker CE (Community Edition)
+For Ubuntu we install Docker Engine under a Personal (free) edition
 
 * The recommended approach is 
 	- to set up Docker’s own repositories and install from them. 
@@ -23,28 +23,43 @@ For Ubuntu we install Docker CE (Community Edition)
 
 
 ```
-# credit https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-repository
+# credit https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+
+# update package index and install prereqs
+
 sudo apt-get update
-sudo apt-get -y install \
-    apt-transport-https \
+sudo apt-get install \
     ca-certificates \
     curl \
-    gnupg-agent \
-    software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88
-sudo add-apt-repository \
-    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-    $(lsb_release -cs) \
-    stable"
+    gnupg \
+    lsb-release
+
+# Add Docker’s official GPG key
+
+sudo mkdir -m 0755 -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+# set up the repository
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# refresh the package index and install docker engine
+
 sudo apt-get update
-sudo apt install -y docker-ce docker-ce-cli containerd.io
-sudo apt install -y docker-compose
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Manage Docker as a non-root user
+
 sudo usermod -aG docker $USER
 
 # test
-sudo docker run hello-world
+docker run hello-world
 ```
+
+If you get an error testing with hello world, try logging out and logging back in, 
+so that you are now recognised as a member of the docker group.
 
 If you have issues check you are using the correct distro page, e.g. https://docs.docker.com/engine/install/debian/#set-up-the-repository
 
