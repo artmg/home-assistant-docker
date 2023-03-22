@@ -48,8 +48,7 @@ echo \
 # refresh the package index and install docker engine
 
 sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-sudo apt install -y docker-compose
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose
 
 # Manage Docker as a non-root user
 

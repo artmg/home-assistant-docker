@@ -26,6 +26,8 @@ allowing you to come back and rebuild this deployment from scratch very quickly.
 
 ## Quick start with docker
 
+### Prequisites
+
 All you need to get going with this is:
 
 * [a basic operating system](/about/setting-up-your-system.md) (like Ubuntu Server)
@@ -33,7 +35,7 @@ All you need to get going with this is:
 
 If you don't already have these, click on those links above for step-by-step instructions on each.
 
-Then prepare a couple of folders:
+Then set up the folder heirarchy:
 
 ```
 ROOTDIR=/srv/docker
@@ -45,20 +47,33 @@ sudo chown $USER:$USER -R $ROOTDIR/
 mkdir -p $ROOTDIR/data/
 mkdir -p $ROOTDIR/data/secrets
 mkdir -p $ROOTDIR/config/
+
+# make it easy to get to your configs
+ln -s /srv/docker/config ~/cfg
 ```
 
+
+### Clone this repository
 
 Then simply clone this repo. Note the dot at the end of the git command that clones into the current folder.
 
 ```
-cd $ROOTDIR/config/
+cd ~/cfg
 git clone https://github.com/artmg/home-assistant-docker.git .
 ```
 
+You can start, if you wish, with the Portainer GUI to help you check status and diagnose
+
+```
+docker/portainer/compose.sh
+```
+
+### Configure your Home Assistant environment
+
 You will need to provide:
 
-* [secrets](/hass/README.md)
-* [environment variables](/compose/README.md)
+* [secrets](./hass/README.md)
+* [environment variables](./docker/compose/README.md)
 
 Then simply run the docker compose
 
@@ -107,6 +122,39 @@ For me, however, the most simple and powerful reason is because I can reinstall 
 Because I store my configuration in a version-controlled git repo, I know it is going to work just like before. This gives an incredible flexibility to move, upgrade, test, tinker... I am no longer bound up inside the box that I spent all that time making things work in.
 
 * **Freedom - Flexibility - Resilience**
+
+
+## What next?
+
+### HACS
+
+If you want to use the Home Assistant Community Store to find integrations, 
+the recommended installation method is [download inside the container](https://hacs.xyz/docs/setup/download/#option-2-run-the-installer-inside-the-container)
+
+Use the HACS container itself, to ensure that you have 
+a known environment in which to run the script:
+
+```
+docker exec -it compose_homeassistant_1 bash
+
+# wait for the bash-x.y$ prompt then paste in...
+
+wget -O - https://get.hacs.xyz | bash -
+
+# you should see lots of lovely green INFO messages 
+# rather than rude red ERRORS
+# afterwards leave the container
+
+exit
+
+# check that hacs is there
+ls ~/cfg/hass/custom_components
+
+# and then, as the HACS installer recommends, restart HA
+./restart-ha.sh
+```
+
+Now, in your Integrations page http://docker-host/config/integrations you can search and add the HACS integration. 
 
 
 ## Documentation To Do
