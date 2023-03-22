@@ -4,3 +4,9 @@ recorder:
 #group: !include groups.yaml
 #automation: !include automations.yaml
 #script: !include scripts.yaml
+
+# allow for the fact we have a reverse proxy in the stack
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.20.0.0/24
